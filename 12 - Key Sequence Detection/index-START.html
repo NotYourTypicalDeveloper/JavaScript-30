@@ -7,6 +7,19 @@
 </head>
 <body>
 <script>
+  const pressed =[];
+  const secretCode = 'geek';
+
+  window.addEventListener('keyup', (e) => {
+    console.log(e.key);
+    pressed.push(e.key);
+    pressed.splice(-secretCode.length -1, - secretCode.length - secretCode.length); 
+      if(pressed.join('').includes(secretCode)) {
+        console.log('Bingo bing!');
+        cornify_add(); //magic function that builds up unicorns and poneys on the UI
+      }
+      console.log(pressed);
+  })
 </script>
 </body>
 </html>
