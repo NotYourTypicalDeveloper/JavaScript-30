@@ -23,9 +23,9 @@
       <input type="text" name="item" placeholder="Item Name" required>
       <input type="submit" value="+ Add Item"> <br>
 
-      <button id="check">Check all</button>
-      <button id="uncheck">Uncheck all</button> <br>
-      <button id="delete">Delete</button> <br>
+      <button id="checkBtn">Check all</button>
+      <button id="uncheckBtn">Uncheck all</button> <br>
+      <button id="deleteBtn">Delete</button> <br>
     </form>
   </div>
 
@@ -33,8 +33,10 @@
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
   const items = JSON.parse(localStorage.getItem('items')) || [];
-  const uncheckBtn = document.querySelector('#uncheck');
   const checkBoxes = document.querySelectorAll('input');
+  const checkBtn = document.querySelector('#checkBtn');
+  const uncheckBtn = document.querySelector('#uncheckBtn');
+  const deleteBtn = document.querySelector('#deleteBtn');
   
 
   function addItem(e) {
