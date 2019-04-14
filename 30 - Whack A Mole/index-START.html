@@ -37,10 +37,10 @@
   const scoreBoard = document.querySelector('.score');
   const moles = document.querySelectorAll('.mole');
   let lastHole;
+  let isTimeUp = false;
 
   function randomTime(min, max) {
     return (Math.random() * (max-min) + min);
-
   }
 
   function randomHole(holes) {
@@ -56,13 +56,34 @@
     return hole
   }
 
-  function peep() {
-    const time = randomTime(200, 1000);
+  function appear() {
+    const timeLength = randomTime(200, 1000);
     const hole = randomHole(holes);
-    console.log(time, hole);
+    console.log(timeLength, hole);
+
+    hole.classList.add('up');
+
+      setTimeout(() => {
+        hole.classList.remove('up');
+          if(!isTimeUp) {
+            appear()
+          }
+
+        }, 
+        timeLength);
 
   }
 
+  function startGame() {
+    scoreBoard.textContent = 0;
+    isTimeUp = false;
+    appear();
+
+    setTimeout(() => {
+      isTimeUp = true
+    },
+    10000);
+  }
 
 </script>
 </body>
